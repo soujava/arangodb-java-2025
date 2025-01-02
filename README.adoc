@@ -1,2 +1,4 @@
-# arangodb-java-2025
+= arangodb-java-2025
+:toc: auto
+
 This repository introduces ArangoDB with java and Eclipse JNoSQL [2025]
