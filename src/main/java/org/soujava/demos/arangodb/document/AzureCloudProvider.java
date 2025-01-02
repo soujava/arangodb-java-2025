@@ -11,17 +11,15 @@ public class AzureCloudProvider extends CloudProvider {
 
 
     @Column
-    private String accountId;
-
-
+    private String tenantId;
 
     public static AzureCloudProvider of(Faker faker) {
-        var aws = faker.aws();
+        var azure = faker.azure();
         var cloudProvider = new AzureCloudProvider();
-        cloudProvider.region = aws.region();
-        cloudProvider.region = aws.region();
+        cloudProvider.region = azure.region();
+        cloudProvider.region = azure.region();
         cloudProvider.id = UUID.randomUUID().toString();
-        cloudProvider.accountId = aws.accountId();
+        cloudProvider.tenantId = azure.tenantId();
         return cloudProvider;
 
     }
