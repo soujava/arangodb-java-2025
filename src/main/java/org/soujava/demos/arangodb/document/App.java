@@ -15,6 +15,8 @@ package org.soujava.demos.arangodb.document;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
+import net.datafaker.providers.base.Aws;
+import net.datafaker.providers.base.Azure;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.util.List;
@@ -25,7 +27,8 @@ public class App {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             var faker = new Faker();
-            faker.aws()
+            Aws aws = faker.aws();
+            Azure azure = faker.azure();
 
         }
     }
