@@ -8,7 +8,7 @@
  *
  * You may elect to redistribute this code under either of these licenses.
  */
-package org.soujava.demos.arangodb;
+package org.soujava.demos.arangodb.keyvalue;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;

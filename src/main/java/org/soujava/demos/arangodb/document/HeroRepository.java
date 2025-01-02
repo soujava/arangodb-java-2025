@@ -8,11 +8,21 @@
  *
  * You may elect to redistribute this code under either of these licenses.
  */
-package org.soujava.demos.arangodb;
+package org.soujava.demos.arangodb.document;
 
-import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
+import org.eclipse.jnosql.databases.arangodb.mapping.AQL;
+import org.eclipse.jnosql.databases.arangodb.mapping.ArangoDBRepository;
+import org.eclipse.jnosql.databases.arangodb.mapping.Param;
+
+import java.util.List;
 
 @Repository
-public interface VillainRepository extends CrudRepository<Villain, String> {
+public interface HeroRepository extends ArangoDBRepository<Hero, String> {
+
+    List<Hero> findByName(String name);
+
+    @AQL("FOR hero in  Hero FILTER hero.realName == @realName return hero")
+    List<Hero> find(@Param("realName") String realName);
+
 }
