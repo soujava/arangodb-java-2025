@@ -59,7 +59,7 @@ public class ArangoDBGraphConfiguration implements GraphConfiguration {
                 .forEach(e -> e.add(builder));
         BaseConfiguration configuration = builder.build();
 
-        var conf2 = new org.apache.commons.configuration2.BaseConfiguration();
+        var conf2 = new org.apache.commons.configuration.BaseConfiguration();
         configuration.getKeys().forEachRemaining(k -> {
             conf2.addProperty(k, configuration.getProperty(k));
         });
