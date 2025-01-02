@@ -9,31 +9,29 @@
  * You may elect to redistribute this code under either of these licenses.
  */
 
-package org.jnosql.demo.se;
+package org.soujava.demos.arangodb;
 
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import net.datafaker.Faker;
 
-public class App2 {
-
+public class App3 {
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            var faker = new Faker();
+            Villain lock = new Villain();
+            lock.setId("lock");
+            lock.setName("Lock");
 
-            HeroRepository repository = container.select(HeroRepository.class).get();
-            Hero hero = repository.save(Hero.of(faker));
-
-            System.out.println(repository.findByName("iron_man"));
-            System.out.println(repository.find("Tony Stark"));
+            VillainService service = container.select(VillainService.class).get();
+            service.put(lock);
+            System.out.println(service.get("lock"));
 
         }
     }
 
-    private App2() {
+    private App3() {
     }
 }

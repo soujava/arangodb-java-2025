@@ -1,4 +1,4 @@
-package org.jnosql.demo.se;
+package org.soujava.demos.arangodb;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;

@@ -9,37 +9,37 @@
  * You may elect to redistribute this code under either of these licenses.
  */
 
-package org.jnosql.demo.se;
+package org.soujava.demos.arangodb;
 
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.mapping.DatabaseQualifier;
+import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
-public class App4 {
+import java.util.List;
+import java.util.Map;
+
+public class App5 {
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Villain lock = new Villain();
-            lock.setId("lock");
-            lock.setName("Lock");
+          Form form = new Form();
+          form.setId("form");
+          form.setOption("option_1");
+          form.setQuestions(Map.of("question_1", "Duke", "question_2", false, "question_3",
+                  Map.of("question_3_1", "Java", "question_3_2", "Jakarta EE")));
 
-            Villain doom = new Villain();
-            doom.setId("doom");
-            doom.setName("Dc Doom");
-
-            VillainRepository repository = container.select(VillainRepository.class, DatabaseQualifier.ofKeyValue()).get();
-
-            repository.save(lock);
-            repository.save(doom);
-            System.out.println(repository.findById("lock"));
-            System.out.println(repository.findById("doom"));
+            var template = container.select(DocumentTemplate.class).get();
+            template.delete(Form.class).execute();
+            template.insert(form);
+            List<Form> forms = template.select(Form.class).result();
+            System.out.println(forms);
 
         }
     }
 
-    private App4() {
+    private App5() {
     }
 }
