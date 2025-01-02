@@ -3,6 +3,8 @@ package org.soujava.demos.arangodb.keyvalue;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
+import net.datafaker.Faker;
+import net.datafaker.providers.base.Aviation;
 
 import java.util.Objects;
 
@@ -45,5 +47,13 @@ public class Airport {
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public static Airport of(Faker faker) {
+        Aviation aviation = faker.aviation();
+        var airport = new Airport();
+        airport.code = aviation.airport();
+        airport.name = aviation.airport();
+        return airport;
     }
 }
