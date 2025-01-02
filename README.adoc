@@ -1,4 +1,20 @@
 = arangodb-java-2025
 :toc: auto
 
-This repository introduces ArangoDB with java and Eclipse JNoSQL [2025]
+image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB, width=200px]
+
+**ArangoDB**: ArangoDB is a native multi-model database system developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
+
+==== How to install with Docker
+
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/arangodb
+1. Run docker command:
+
+[source, bash]
+----
+docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
+----
