@@ -1,12 +1,14 @@
 package org.soujava.demos.arangodb.document;
 
 import jakarta.nosql.Column;
+import jakarta.nosql.DiscriminatorValue;
 import jakarta.nosql.Entity;
 import net.datafaker.Faker;
 
 import java.util.UUID;
 
 @Entity
+@DiscriminatorValue("AWS")
 public class AWSCloudProvider extends CloudProvider {
 
 
