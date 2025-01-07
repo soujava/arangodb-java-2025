@@ -8,13 +8,12 @@ import org.eclipse.jnosql.mapping.keyvalue.KeyValueTemplate;
 public class App {
 
     public static void main(String[] args) {
-        Faker faker = new Faker();
+        var faker = new Faker();
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             KeyValueTemplate template = container.select(KeyValueTemplate.class).get();
-            Airport airport = template.put(Airport.of(faker));
+            var airport = template.put(Airport.of(faker));
             System.out.println(template.get(airport.getCode(), Airport.class));
-
         }
     }
 }
