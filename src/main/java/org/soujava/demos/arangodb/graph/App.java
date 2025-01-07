@@ -11,10 +11,10 @@ import static org.apache.tinkerpop.gremlin.process.traversal.P.between;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.gte;
 import static org.soujava.demos.arangodb.graph.Person.builder;
 
-public final class MarketingApp {
+public final class App {
 
 
-    private MarketingApp() {
+    private App() {
     }
 
     public static void main(String[] args) {
