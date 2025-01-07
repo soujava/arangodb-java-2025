@@ -21,8 +21,5 @@ public class AzureCloudProvider extends CloudProvider {
         cloudProvider.id = UUID.randomUUID().toString();
         cloudProvider.tenantId = azure.tenantId();
         return cloudProvider;
-
     }
-
-
 }
