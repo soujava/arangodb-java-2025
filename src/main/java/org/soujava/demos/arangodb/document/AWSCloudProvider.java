@@ -17,6 +17,15 @@ public class AWSCloudProvider extends CloudProvider {
         return accountId;
     }
 
+    @Override
+    public String toString() {
+        return "AWSCloudProvider{" +
+                "accountId='" + accountId + '\'' +
+                ", id='" + id + '\'' +
+                ", region='" + region + '\'' +
+                '}';
+    }
+
     public static AWSCloudProvider of(Faker faker) {
         var aws = faker.aws();
         var cloudProvider = new AWSCloudProvider();

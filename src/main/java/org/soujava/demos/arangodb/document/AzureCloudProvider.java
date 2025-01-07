@@ -17,6 +17,15 @@ public class AzureCloudProvider extends CloudProvider {
         return tenantId;
     }
 
+    @Override
+    public String toString() {
+        return "AzureCloudProvider{" +
+                "tenantId='" + tenantId + '\'' +
+                ", id='" + id + '\'' +
+                ", region='" + region + '\'' +
+                '}';
+    }
+
     public static AzureCloudProvider of(Faker faker) {
         var azure = faker.azure();
         var cloudProvider = new AzureCloudProvider();
