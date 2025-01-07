@@ -15,19 +15,26 @@ package org.soujava.demos.arangodb.document;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
-import net.datafaker.providers.base.Aws;
-import net.datafaker.providers.base.Azure;
+import org.eclipse.jnosql.mapping.document.DocumentTemplate;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 
 public class App {
 
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
+
     public static void main(String[] args) {
-
+        var faker = new Faker();
+        LOGGER.info("Starting the application");
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            var faker = new Faker();
-            Aws aws = faker.aws();
-            Azure azure = faker.azure();
-
+            var template = container.select(DocumentTemplate.class).get();
+            LOGGER.info("Creating 10 documents");
+            for (int index = 0; index < 5; index++) {
+                template.insert(List.of(AWSCloudProvider.of(faker), AzureCloudProvider.of(faker)));
+            }
+            template.select(CloudProvider.class).stream().forEach(System.out::println);
         }
     }
 
