@@ -13,7 +13,9 @@ public class AWSCloudProvider extends CloudProvider {
     @Column
     private String accountId;
 
-
+    public String getAccountId() {
+        return accountId;
+    }
 
     public static AWSCloudProvider of(Faker faker) {
         var aws = faker.aws();
@@ -23,7 +25,6 @@ public class AWSCloudProvider extends CloudProvider {
         cloudProvider.id = UUID.randomUUID().toString();
         cloudProvider.accountId = aws.accountId();
         return cloudProvider;
-
     }
 
 

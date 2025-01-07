@@ -13,4 +13,6 @@ public class CloudProvider {
 
     @Column
     protected String region;
+
+
 }

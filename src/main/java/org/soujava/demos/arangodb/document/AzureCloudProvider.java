@@ -13,6 +13,10 @@ public class AzureCloudProvider extends CloudProvider {
     @Column
     private String tenantId;
 
+    public String getTenantId() {
+        return tenantId;
+    }
+
     public static AzureCloudProvider of(Faker faker) {
         var azure = faker.azure();
         var cloudProvider = new AzureCloudProvider();
