@@ -15,11 +15,9 @@ public class AzureCloudProvider extends CloudProvider {
     @Column
     private String tenantId;
 
-// --Commented out by Inspection START (14/01/2025, 18:40):
-//    public String getTenantId() {
-//        return tenantId;
-//    }
-// --Commented out by Inspection STOP (14/01/2025, 18:40)
+    public String getTenantId() {
+        return tenantId;
+    }
 
     @Override
     public String toString() {
