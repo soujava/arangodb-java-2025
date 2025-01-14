@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-public class App {
+public class DocumentApp {
 
-    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DocumentApp.class.getName());
 
     public static void main(String[] args) {
         var faker = new Faker();
@@ -38,6 +38,6 @@ public class App {
         }
     }
 
-    private App() {
+    private DocumentApp() {
     }
 }
