@@ -5,7 +5,7 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 import org.eclipse.jnosql.mapping.keyvalue.KeyValueTemplate;
 
-public class KeyValueApp {
+public class App {
 
     public static void main(String[] args) {
         var faker = new Faker();
