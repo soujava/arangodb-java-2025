@@ -34,7 +34,15 @@ public class App {
             for (int index = 0; index < 5; index++) {
                 template.insert(List.of(AWSCloudProvider.of(faker), AzureCloudProvider.of(faker)));
             }
+
+            System.out.println("The cloud providers here");
             template.select(CloudProvider.class).stream().forEach(System.out::println);
+
+            System.out.println("The AWS cloud providers here");
+            template.select(AWSCloudProvider.class).stream().forEach(System.out::println);
+
+            System.out.println("The Azure cloud providers here");
+            template.select(AzureCloudProvider.class).stream().forEach(System.out::println);
         }
     }
 
